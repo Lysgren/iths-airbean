@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+<<<<<<< Updated upstream
       menu:[
         {
           'id': 1,
@@ -32,6 +33,13 @@ export default new Vuex.Store({
         },
         {'id':6,'title':'Cortado','desc':'Bryggd på månadens bönor.','price':39}
       ]
+=======
+    menu: [],
+    userName: 'Anon',
+    userEmail: null,
+    orderHistory: {}
+    // övrig kund info i localstorage inloggad user
+>>>>>>> Stashed changes
   },
   getters: {
     getMenu: state => state.menu

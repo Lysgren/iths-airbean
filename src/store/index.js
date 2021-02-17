@@ -35,7 +35,7 @@ export default new Vuex.Store({
     },
     login: ({ commit }, loginData) => { 
       let login = API.login(loginData.name, loginData.email)
-
+      login = true // komma runt, bort
       if (login == true) {
         commit('setUser', loginData)
       } else {

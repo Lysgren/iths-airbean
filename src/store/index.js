@@ -15,7 +15,9 @@ export default new Vuex.Store({
   },
   getters: {
     getMenu: (state) => state.menu,
-    getCart: (state) => state.cart
+    getCart: (state) => state.cart,
+    getName: (state) => state.userName,
+    getEmail: (state) => state.userEmail
   },
   mutations: {
     setMenu: (state, menuAPI) => state.menu = menuAPI.menu,
@@ -35,7 +37,7 @@ export default new Vuex.Store({
     },
     login: ({ commit }, loginData) => { 
       let login = API.login(loginData.name, loginData.email)
-      login = true // komma runt, bort
+      login = true // komma runt,
       if (login == true) {
         commit('setUser', loginData)
       } else {

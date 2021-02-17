@@ -51,7 +51,7 @@ async function login(name, email) {
   // Fixa så att den retunerar ett felmedelande i still med "Ingen användare funnen"
 
   // return rätt username & email return historisk
-=======
+
   // return rätt username & email
 
 }

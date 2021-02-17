@@ -5,8 +5,6 @@ export async function fetchProducts(){
 export async function registerUser(name, email){
   // Resolve a random generated ID after a random timer
   // Persist user in localStorage
-<<<<<<< Updated upstream
-=======
   console.log(name, email)
   // const randomID = Math.floor((Math.random() * 5) + 1)
   const user = {
@@ -43,7 +41,6 @@ async function login(name, email) {
   }
   // Fixa så att den retunerar ett felmedelande i still med "Ingen användare funnen"
   // return rätt username & email
->>>>>>> Stashed changes
 }
 
 export async function makeOrder(userId, cardItems){

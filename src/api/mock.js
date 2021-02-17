@@ -20,7 +20,7 @@ async function registerUser(name, email) {
     name: name,
     email: email,
     randomID: 123467,
-    orderHistory: [],
+    orderHistory: {},
     password: 'skurt25'
   }
   let userList = localStorage.getItem('userDataBase')
@@ -49,7 +49,7 @@ async function login(name, email) {
     return false
   }
   // Fixa så att den retunerar ett felmedelande i still med "Ingen användare funnen"
-  // return rätt username & email
+  // return rätt username & email return historisk
 }
 
 async function makeOrder(userId, cardItems) {

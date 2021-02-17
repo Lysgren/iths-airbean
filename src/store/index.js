@@ -8,8 +8,8 @@ export default new Vuex.Store({
   state: {
     menu: [],
     userName: 'Anon',
-    userEmail: null
-
+    userEmail: null,
+    orderHistory: {}
     // övrig kund info i localstorage inloggad user
   },
   getters: {

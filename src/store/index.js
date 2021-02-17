@@ -10,7 +10,7 @@ export default new Vuex.Store({
     userName: 'Anon',
     userEmail: null
 
-
+//hejhej
     // övrig kund info i localstorage inloggad user
   },
   getters: {

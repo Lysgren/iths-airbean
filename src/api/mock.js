@@ -1,8 +1,17 @@
-export async function fetchProducts(){
+async function fetchProducts() {
   // Resolve the products from menu.json after a random timer
+  /*
+  const delay = Math.floor((Math.random() * 5000) + 1000)
+  setTimeout(() => {
+    const request = require('./menu.json')
+    return request
+  }, delay)
+  */
+  const request = require('./menu.json')
+  return request
 }
 
-export async function registerUser(name, email){
+async function registerUser(name, email) {
   // Resolve a random generated ID after a random timer
   // Persist user in localStorage
   console.log(name, email)
@@ -40,14 +49,23 @@ async function login(name, email) {
     return false
   }
   // Fixa så att den retunerar ett felmedelande i still med "Ingen användare funnen"
+
+  // return rätt username & email return historisk
+=======
   // return rätt username & email
+
 }
 
-export async function makeOrder(userId, cardItems){
+async function makeOrder(userId, cardItems) {
   // Resolve with a orderId, order total price and ETA after a random timer
   // Persist order coupled userId in an array in localStorage
+  console.log(userId, cardItems)
 }
 
-export async function fetchOrderHistory(userId){
+async function fetchOrderHistory(userId) {
   // Resolve an array of orders after a random timer
+  console.log(userId)
+  return userId.orderHistory
 }
+
+export { fetchProducts, registerUser, login, makeOrder, fetchOrderHistory }

@@ -1,8 +1,11 @@
 <template>
-  <div>
+  <div class="wrapper">
     <Navbar/>
-    <h1>Coffee menu</h1>
-    <CoffeeMenuItem/>
+    <div class="menu-wrapper">
+      <h1>Meny</h1>
+       <CoffeeMenuItem :menuItem="item" v-for="item in menu" :key="item.id"/>
+    </div>
+    
   </div>
   
 </template>
@@ -11,9 +14,27 @@
 import Navbar from '@/components/Navbar.vue'
 import CoffeeMenuItem from '@/components/CoffeeMenuItem.vue'
 export default {
-  components: {Navbar, CoffeeMenuItem}
+  components: {Navbar, CoffeeMenuItem},
+  computed: {
+    menu(){
+      return this.$store.getters.getMenu
+    }
+  }
 }
 </script>
 
 <style scoped>
+
+.wrapper{
+  background-color: #F3E4E1;
+  color: #2F2926;
+}
+
+.menu-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 </style>

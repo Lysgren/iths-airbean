@@ -33,7 +33,7 @@ export default {
           } else{this.active = false}
       },
       addToCart(){
-          console.log(this.menuItem)
+          this.$store.commit("addItem",this.menuItem)
       }
   }
 }

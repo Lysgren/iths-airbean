@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
   <div>
     <div class="shopping-cart">
@@ -65,25 +64,9 @@ export default {
   margin-right: auto;
   padding: 8px;
 }
-=======
-<template>
-<div>
-    <div class="shopping-cart">
-    <h1>Shopping Cart</h1>
-    <CartItem/>
-    </div>
-</div>
 
-</template>
 
-<script>
-import CartItem from '@/components/CartItem.vue'
-export default {
-    components: {CartItem}
-}
-</script>
 
-<style scoped>
 
 
 
@@ -102,5 +85,6 @@ export default {
   margin-right: auto;
   padding: 8px;
 }
->>>>>>> register
+
+
 </style>

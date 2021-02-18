@@ -1,7 +1,7 @@
 <template>
 <div>
-    <h1>Profile Logged in</h1>
-    <Orders/>
+    <h1>Register user</h1>
+
 </div>
 </template>
 

@@ -1,46 +1,25 @@
 {
     "menu":[
-      {
-        "id":1,
-        "title":"Bryggkaffe",
-        "desc":"Bryggd på månadens bönor.",
-        "details": "In, grinder, wings, froth, cappuccino spoon carajillo at extra. Aroma at black id, cappuccino crema aroma pumpkin spice wings black. Chicory single origin sweet, irish affogato espresso lungo wings. Decaffeinated, ristretto macchiato, half and half pumpkin spice strong in affogato.",
-        "price":39
-      },
+      {"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39},
       {
         "id":2,
         "title":"Caffè Doppio",
         "desc":"Bryggd på månadens bönor.",
-        "details": "At acerbic, cup, at, black aromatic to go ut cultivar caffeine pumpkin spice cortado. Bar , et carajillo froth id, crema, plunger pot blue mountain cultivar eu seasonal. Kopi-luwak eu shop foam a cultivar caramelization half and half. Aroma, decaffeinated, siphon carajillo froth extra  carajillo aftertaste beans instant robust steamed.",
         "price":49
       },
-      {
-        "id":3,
-        "title":"Cappuccino",
-        "desc":"Bryggd på månadens bönor.",
-        "details": "To go, milk, filter, and robust macchiato siphon crema crema organic. Kopi-luwak roast aroma frappuccino carajillo sweet saucer filter. Foam cultivar doppio café au lait beans, irish in grounds decaffeinated doppio that carajillo. Brewed bar , shop french press milk cinnamon extraction variety.",
-        "price":49
-      },
+      {"id":3,"title":"Cappuccino","desc":"Bryggd på månadens bönor.","price":49},
       {
         "id":4,
         "title":"Latte Macchiato",
         "desc":"Bryggd på månadens bönor.",
-        "details": "Filter, in spoon cultivar ut as latte half and half rich acerbic. Sweet filter, sweet grounds, ut robusta est acerbic mazagran acerbic affogato.",
         "price":49
       },
       {
         "id":5,
         "title":"Kaffe Latte",
         "desc":"Bryggd på månadens bönor.",
-        "details": "Variety qui, body variety macchiato pumpkin spice organic single shot. Single origin to go, redeye, turkish cortado and black half and half galão strong. Sit spoon, grounds, decaffeinated galão, coffee latte rich roast bar.",
         "price":54
       },
-      {
-        "id":6,
-        "title":"Cortado",
-        "desc":"Bryggd på månadens bönor.",
-        "details": "Flavour brewed medium coffee roast, decaffeinated instant flavour milk mocha dark. Crema, aroma turkish est to go cup half and half ristretto ut cultivar aroma.",
-        "price":39
-      }
+      {"id":6,"title":"Cortado","desc":"Bryggd på månadens bönor.","price":39}
     ]
-}
+  }

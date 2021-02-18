@@ -14,7 +14,7 @@
 import Navbar from '@/components/Navbar.vue'
 import CoffeeMenuItem from '@/components/CoffeeMenuItem.vue'
 export default {
-  components: {Navbar, CoffeeMenuItem},
+  components: { Navbar, CoffeeMenuItem},
   computed: {
     menu(){
       return this.$store.getters.getMenu

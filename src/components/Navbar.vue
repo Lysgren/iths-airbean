@@ -25,8 +25,7 @@ import ShoppingCart from '@/components/ShoppingCart.vue'
 export default {
     components: {ShoppingCart},
     data(){return{
-        active: false,
-        incart: this.$store.state.cart.length
+        active: false
     }},
     methods: {
         toggleCart(){
@@ -35,6 +34,11 @@ export default {
             } else {
                 this.active = false
             }
+        }
+    },
+    computed: {
+        incart(){
+            return this.$store.state.cart.length
         }
     }
 }

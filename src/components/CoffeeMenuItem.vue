@@ -5,20 +5,33 @@
             <img src="@/assets/add.svg" alt="add" class="addIcon">
         </div>
         <div class="card-info">
-            <div class="heading">
-                <h2>{{menuItem.title}}</h2>
+            <div class="heading" v-on:click="toggleInfo">
+                <h2 >{{menuItem.title}}</h2>
                 <h2>{{menuItem.price}}</h2>  
             </div>
             <h4>{{menuItem.desc}}</h4>
         </div>
     </div>
+    <CoffeeInfo v-if="active" :coffee="menuItem.details" v-on:clicked="toggleInfo"/>
 </div>
 </template>
 
 <script>
+import CoffeeInfo from './CoffeeInfo.vue'
 export default {
     props: {
     menuItem: Object
+  },
+  components: {CoffeeInfo},
+  data(){return{
+      active: false
+  }},
+  methods: {
+      toggleInfo(){
+          if(!this.active){
+              this.active = true
+          } else{this.active = false}
+      }
   }
 }
 </script>
@@ -46,6 +59,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .icon{

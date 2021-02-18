@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="wrapper-card">
-        <div class="icon">
+        <div class="icon" v-on:click="addToCart">
             <img src="@/assets/add.svg" alt="add" class="addIcon">
         </div>
         <div class="card-info">
@@ -31,6 +31,9 @@ export default {
           if(!this.active){
               this.active = true
           } else{this.active = false}
+      },
+      addToCart(){
+          console.log('something')
       }
   }
 }

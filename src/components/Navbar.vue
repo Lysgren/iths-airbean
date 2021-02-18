@@ -12,7 +12,7 @@
         </div>
         
         <div class="cart">
-            <span class="itemsnr">7</span>
+            <span class="itemsnr">{{incart}}</span>
             <img src="@/assets/bag.svg" class="icon" @click="toggleCart">
         </div>
     </div>
@@ -25,7 +25,8 @@ import ShoppingCart from '@/components/ShoppingCart.vue'
 export default {
     components: {ShoppingCart},
     data(){return{
-        active: false
+        active: false,
+        incart: this.$store.state.cart.length
     }},
     methods: {
         toggleCart(){

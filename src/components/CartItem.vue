@@ -1,6 +1,5 @@
 <template>
 
-
 <div class="cart-item">
 <span>
 <p>{{item.title}}</p>

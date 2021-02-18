@@ -14,10 +14,10 @@ export default new Vuex.Store({
     // övrig kund info i localstorage inloggad user
   },
   getters: {
-    getMenu: (state) => state.menu,
-    getCart: (state) => state.cart,
-    getName: (state) => state.userName,
-    getEmail: (state) => state.userEmail
+    getMenu: state => state.menu,
+    getCart: state => state.cart,
+    getName: state => state.userName,
+    getEmail: state => state.userEmail
   },
   mutations: {
     setMenu: (state, menuAPI) => state.menu = menuAPI.menu,

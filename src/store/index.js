@@ -9,7 +9,7 @@ export default new Vuex.Store({
     menu: [],
     userName: 'Anon',
     userEmail: null,
-    orderHistory: {},
+    orderHistory: [],
     cart: [],
     // övrig kund info i localstorage inloggad user
   },

@@ -33,7 +33,7 @@ export default {
           } else{this.active = false}
       },
       addToCart(){
-          console.log('something')
+          console.log(this.menuItem)
       }
   }
 }

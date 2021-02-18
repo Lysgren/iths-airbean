@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
 <div>
     <div class="wrapper-card">
@@ -84,19 +83,4 @@ export default {
 }
 
 
-=======
-<template>
-<div>
-    <h1>Coffee Menu Item</h1>
-</div>
-</template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style scoped>
->>>>>>> register
 </style>

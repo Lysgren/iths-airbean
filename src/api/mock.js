@@ -20,27 +20,40 @@ async function registerUser(name, email) {
     name: name,
     email: email,
     randomID: 123467,
-    orderHistory: [],
+    orderHistory: {},
     password: 'skurt25'
   }
   let userList = localStorage.getItem('userDataBase')
   if (!userList) {
     userList = []
   }
+  // Fixa validering av email (om det redan finns ett konto registererad med en email så ska det inte gå igenom)
+
+  console.log(userList)
   userList.push(user)
   localStorage.setItem('userDataBase', userList)
-
-
-  login(user.name, user.email)
   //userList databas dummy för alla användare
   // push user to local storage
 }
 
-//loggin storage i local för inloggad
-
 async function login(name, email) {
   console.log(name, email)
-  //localStorage.setItem('loggedIN', user)
+  let userList = localStorage.getItem('userDataBase')
+  const currentUser = userList.find(user => user.name == name && user.email == email)
+  console.log(currentUser)
+  
+  if (currentUser) {
+    localStorage.setItem('loggedIN', currentUser)
+    return true
+  } else {
+    return false
+  }
+  // Fixa så att den retunerar ett felmedelande i still med "Ingen användare funnen"
+
+  // return rätt username & email return historisk
+
+  // return rätt username & email
+
 }
 
 async function makeOrder(userId, cardItems) {
@@ -55,4 +68,4 @@ async function fetchOrderHistory(userId) {
   return userId.orderHistory
 }
 
-export { fetchProducts, registerUser, makeOrder, fetchOrderHistory }
+export { fetchProducts, registerUser, login, makeOrder, fetchOrderHistory }

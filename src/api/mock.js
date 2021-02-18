@@ -14,26 +14,32 @@ async function fetchProducts() {
 async function registerUser(name, email) {
   // Resolve a random generated ID after a random timer
   // Persist user in localStorage
-  console.log(name, email)
-  // const randomID = Math.floor((Math.random() * 5) + 1)
+  let dataBase =  JSON.parse(window.localStorage.getItem('dataBase'))
+
+  if (dataBase == null) {
+    localStorage.setItem('dataBase', JSON.stringify([]))
+  } 
+
+  for (let i = 0; i < dataBase.length; i++) {
+    if (dataBase[i].email == email) {
+      return false
+    }
+  }
+
   const user = {
     name: name,
     email: email,
-    randomID: 123467,
-    orderHistory: {},
-    password: 'skurt25'
+    id: Date.now(),
+    orderHistory: [],
   }
-  let userList = localStorage.getItem('userDataBase')
-  if (!userList) {
-    userList = []
-  }
-  // Fixa validering av email (om det redan finns ett konto registererad med en email så ska det inte gå igenom)
 
-  console.log(userList)
-  userList.push(user)
-  localStorage.setItem('userDataBase', userList)
-  //userList databas dummy för alla användare
-  // push user to local storage
+  dataBase.push(user)
+  console.log(dataBase)
+
+  window.localStorage.setItem('dataBase',  JSON.stringify(dataBase))
+
+  return true
+
 }
 
 async function login(name, email) {

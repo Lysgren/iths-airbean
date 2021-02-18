@@ -21,7 +21,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setMenu: (state, menuAPI) => state.menu = menuAPI.menu,
-    setUser: (state, user) => {
+    setUser: function(state, user) {
       state.userName = user.name
       state.userEmail = user.email
     },
@@ -29,11 +29,18 @@ export default new Vuex.Store({
   },
   actions: {
     fetchPosts: async ({ commit }) => {
+      // Up and running
       await API.fetchProducts().then(data => commit('setMenu', data))
-    }, // Up and running
+    },
     registerUser: async ({ commit }, userData) => {
-      API.registerUser(userData.name, userData.email)
-      commit('setUser', userData)
+      // Up and running
+      const registration = await API.registerUser(userData.name, userData.email)
+      if (registration == false) {
+        // Temporary, need refinement
+        console.log('Email already registered...')
+      } else {
+        commit('setUser', userData)
+      }
     },
     login: ({ commit }, loginData) => { 
       let login = API.login(loginData.name, loginData.email)

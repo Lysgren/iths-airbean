@@ -1,12 +1,15 @@
 <template>
 <div>
     <h1>Profile logged in</h1>
+    <Orders/>
 </div>
 </template>
 
 <script>
-export default {
+import Orders from '@/components/Orders.vue'
 
+export default {
+    components: {Orders}
 }
 </script>
 

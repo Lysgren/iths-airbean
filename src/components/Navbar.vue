@@ -12,7 +12,7 @@
         </div>
         
         <div class="cart">
-            <span class="itemsnr">7</span>
+            <span class="itemsnr">{{incart}}</span>
             <img src="@/assets/bag.svg" class="icon" @click="toggleCart">
         </div>
     </div>
@@ -34,6 +34,11 @@ export default {
             } else {
                 this.active = false
             }
+        }
+    },
+    computed: {
+        incart(){
+            return this.$store.state.cart.length
         }
     }
 }

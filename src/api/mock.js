@@ -14,10 +14,11 @@ async function fetchProducts() {
 async function registerUser(name, email) {
   // Resolve a random generated ID after a random timer
   // Persist user in localStorage
-  let dataBase =  JSON.parse(window.localStorage.getItem('dataBase'))
+  let dataBase = JSON.parse(window.localStorage.getItem('dataBase'))
 
   if (dataBase == null) {
     localStorage.setItem('dataBase', JSON.stringify([]))
+    dataBase = JSON.parse(window.localStorage.getItem('dataBase'))
   } 
 
   for (let i = 0; i < dataBase.length; i++) {
@@ -34,27 +35,17 @@ async function registerUser(name, email) {
   }
 
   dataBase.push(user)
-  console.log(dataBase)
   window.localStorage.setItem('dataBase',  JSON.stringify(dataBase))
-
-  window.localStorage.setItem('activeUser', user.id)
-
-  return true
+  return user
 }
 
-async function login(name, email) {
-  console.log(name, email)
-  let userList = localStorage.getItem('userDataBase')
-  const currentUser = userList.find(user => user.name == name && user.email == email)
-  console.log(currentUser)
-  
-  if (currentUser) {
-    localStorage.setItem('loggedIN', currentUser)
-    return true
-  } else {
-    return false
+async function login(loginData) {
+  const dataBase = JSON.parse(window.localStorage.getItem('dataBase'))
+  if (dataBase == null) {
+    return false 
   }
-  // Fixa så att den retunerar ett felmedelande i still med 'Ingen användare funnen'
+  const findUser = dataBase.find(user => user.name == loginData.name && user.email == loginData.email)
+  return findUser == undefined ? false : findUser
 }
 
 async function makeOrder(userId, cardItems) {

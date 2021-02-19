@@ -1,11 +1,6 @@
 <template>
   <div class="home" @click="enter">
-    <h1>Air bean delivered coffee</h1>
- 
-    
-
-
-
+    <img src="@/assets/airbean-landing.svg" alt="">
   </div>
 </template>
 
@@ -26,7 +21,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: teal;
+  background-color: #0E927D;
+  background-image: url(~@/assets/intro-graphic-left.svg), url(~@/assets/intro-graphic-right.svg);
+  background-position: top left, top right;
+  background-repeat: no-repeat, no-repeat;
   height: 100vh;
 }
 </style>

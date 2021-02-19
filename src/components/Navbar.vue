@@ -11,7 +11,7 @@
            
         </div>
         
-        <div class="cart">
+        <div :class="checkEmptyCart">
             <span class="itemsnr" v-if="incart > 0">{{incart}}</span>
             <img src="@/assets/bag.svg" class="icon" @click="toggleCart">
         </div>
@@ -39,6 +39,13 @@ export default {
     computed: {
         incart(){
             return this.$store.state.cart.length
+        },
+        checkEmptyCart(){
+            if(this.incart > 0) {
+                return "cart"
+            } else {
+                return "cart-hidden"
+            }
         }
     }
 }
@@ -100,6 +107,10 @@ export default {
     position: absolute;
     top: 20px;
     right: 25px;
+}
+
+.cart-hidden{
+    visibility: hidden;
 }
 
 </style>

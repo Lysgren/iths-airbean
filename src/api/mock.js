@@ -35,11 +35,11 @@ async function registerUser(name, email) {
 
   dataBase.push(user)
   console.log(dataBase)
-
   window.localStorage.setItem('dataBase',  JSON.stringify(dataBase))
 
-  return true
+  window.localStorage.setItem('activeUser', user.id)
 
+  return true
 }
 
 async function login(name, email) {
@@ -54,7 +54,7 @@ async function login(name, email) {
   } else {
     return false
   }
-  // Fixa så att den retunerar ett felmedelande i still med "Ingen användare funnen"
+  // Fixa så att den retunerar ett felmedelande i still med 'Ingen användare funnen'
 }
 
 async function makeOrder(userId, cardItems) {

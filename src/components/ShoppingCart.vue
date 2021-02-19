@@ -3,11 +3,13 @@
     <div class="shopping-cart">
       <h1>Din beställning</h1>
       <CartItem v-for="item in cartItems" :key="item.id" v-bind:item="item" />
-      
-      <div class="summary"> 
-        <span class="total"><p>Total</p><p>{{ totalPrice }} kr</p></span>
+
+      <div class="summary">
+        <span class="total"
+          ><p>Total</p>
+          <p>{{ totalPrice }} kr</p></span
+        >
         <p>Inklusive moms + drönarleverans</p>
-        
       </div>
 
       <button @click="submitOrder">Take my money!</button>
@@ -25,34 +27,23 @@ export default {
       return this.$store.getters.getCart;
     },
 
-    // totalPrice() {
-    //   return this.$store.getters.totalPrice
-    // },
-
-    //flytta till getters i store
-
     totalPrice() {
       let prices = [];
       let total = 0;
-      this.$store.state.cart.forEach((coffee) => prices.push(coffee.price * coffee.amount));
+      this.$store.state.cart.forEach((coffee) =>
+        prices.push(coffee.price * coffee.amount)
+      );
 
       total = prices.reduce((newValue, current) => newValue + current);
       return total;
     },
   },
-
   methods: {
-    // submitOrder() {
-    //   this.$store.mutations.makeOrder
-    // },
-    //flytta till mutations i store och commita via method ovan
     submitOrder() {
 
-      let order = this.$store.state.cart.filter(item => item.amount >0)
-      //push order till databasen
-      console.log(order);
+      let orderId = new Date().toString()
+      this.$store.dispatch("makeOrder", orderId);
     },
-  
   },
 };
 </script>
@@ -74,25 +65,20 @@ export default {
   margin-top: 16px;
   padding: 16px;
 }
-button{
+button {
   border-radius: 20px;
   width: fit-content;
   border: none;
-  background-color: #2F2926;
+  background-color: #2f2926;
   padding: 12px;
   color: white;
   align-self: center;
-
 }
 
-
-.total{
+.total {
   font-weight: bold;
   font-size: 1.8rem;
   display: flex;
   justify-content: space-between;
 }
-
-
-
 </style>

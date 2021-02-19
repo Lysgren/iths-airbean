@@ -15,7 +15,9 @@ export default new Vuex.Store({
   getters: {
     getMenu: state => state.menu,
     getCart: state => state.cart,
-    getActiveUser: state => state.activeUser
+    getActiveUser: state => state.activeUser,
+
+    
   },
   mutations: {
     setMenu: (state, menuAPI) => state.menu = menuAPI.menu,
@@ -23,7 +25,27 @@ export default new Vuex.Store({
       window.localStorage.setItem('activeUser', JSON.stringify(user))
       state.activeUser = user
     },
-    addItem: (state, change) => state.cart.push(change)
+    addItem: (state, item) => {
+      const find = state.cart.findIndex(element => {
+        if (element.id == item.id ) {
+          return true
+        }
+      })
+
+      find != -1 ? state.cart[find].amount++ : state.cart.push(item)
+    },
+
+    changeAmount(state, payload) {
+      let item = payload.item
+      let option = payload.option
+      
+      
+      if (option == "inc") {
+        item.amount += 1
+      } else if (option == "dec") {
+        item.amount -= 1
+      }
+    }
   },
   actions: {
     fetchPosts: async ({ commit }) => {
@@ -45,10 +67,14 @@ export default new Vuex.Store({
         commit('loginUser', login)
       }
     },
+    /*
     addItem: (commit, item) => commit('addItem', item),
-    makeOrder: async (commit, orderData) => {
-      API.makeOrder(orderData.id, orderData.items)
-    },
+
+    // makeOrder: async (commit, orderId) => {
+    //   API.makeOrder(orderId, this.state.cart)
+    // },
+
+    */
     fetchHistory: async (commit, userId) => {
       API.fetchOrderHistory(userId)
     }

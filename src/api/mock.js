@@ -48,10 +48,27 @@ async function login(loginData) {
   return findUser == undefined ? false : findUser
 }
 
-async function makeOrder(userId, cardItems) {
+async function makeOrder(orderId, order) {
+
+ //  let order = this.$store.state.cart.filter(item => item.amount >0)
+ 
+ console.log(order)
+ console.log(orderId)
+
+// if(this.$store.state.activeUser == null){
+//   this.$store.state.orderHistory.push(order)
+//   console.log('anonym användare' + this.$store.state.orderHistory)
+//   console.log('anonym användare' + order)
+// }else{
+//   //push order till databasen
+//   console.log(order);
+
+// }
+
+
   // Resolve with a orderId, order total price and ETA after a random timer
   // Persist order coupled userId in an array in localStorage
-  console.log(userId, cardItems)
+
 }
 
 async function fetchOrderHistory(userId) {

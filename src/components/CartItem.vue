@@ -8,7 +8,7 @@
     <span class="amount">
       <img
         class="event"
-        @click="changeAmount(item.id, 'inc')"
+        @click="changeAmount(item, 'inc')"
         src="@/assets/arrow-up.svg"
         alt="arrow up"
       />
@@ -18,7 +18,7 @@
       <img
         v-if="displayDec"
         class="event"
-        @click="changeAmount(item.id, 'dec')"
+        @click="changeAmount(item, 'dec')"
         src="@/assets/arrow-down.svg"
         alt="arrow down"
       />
@@ -39,28 +39,17 @@ export default {
   },
 
   methods: {
-    // changeAmount(id, option){
-
-    //  this.$commit('changeAmount', id, option)
-    // },
-
-    //flytta till mutations i store och använd commit från funktionen ovan
-    //(kommer behöva fixa sökvägen till store)
-    changeAmount(id, option) {
-      let coffeeId = this.$store.state.cart.find((item) => item.id == id);
-
-      if (option == "inc") {
-        coffeeId.amount += 1;
-      } else if (option == "dec") {
-        coffeeId.amount -= 1;
-      }
-
-      //lämna kvar i methods:
-      if (coffeeId.amount == 0) {
-        this.displayDec = false;
-      } else if (coffeeId.amount > 0) {
-        this.displayDec = true;
-      }
+    changeAmount(item, option) {
+      
+      let payload = {item, option}
+      this.$store.commit("changeAmount", payload);
+      
+            
+            if (item.amount == 0) {
+              this.displayDec = false;
+            } else if (item.amount > 0) {
+              this.displayDec = true;
+            }
     },
   },
 };

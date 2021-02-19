@@ -33,7 +33,7 @@ export default {
           } else{this.active = false}
       },
       addToCart(){
-          this.$store.commit("addItem",this.menuItem)
+          this.$store.commit("addItem", { amount: 1, title: this.menuItem.title, id: this.menuItem.id, price: this.menuItem.price })
       }
   }
 }

@@ -38,7 +38,11 @@ export default {
     },
     computed: {
         incart(){
-            return this.$store.state.cart.length
+            let tot = 0
+            this.$store.state.cart.forEach(coffee => {
+                tot += coffee.amount               
+            });
+            return tot
         },
         checkEmptyCart(){
             if(this.incart > 0) {

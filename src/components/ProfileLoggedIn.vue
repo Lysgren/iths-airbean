@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>Profile logged in</h1>
+    <h1>Congratz u are logged in!</h1>
     <Orders/>
 </div>
 </template>

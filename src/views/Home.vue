@@ -14,9 +14,7 @@ export default {
   name: 'Home',
 
   methods:{
-
     enter(){
-
       this.$router.push('/coffeemenu')
     }
   }

@@ -19,35 +19,30 @@ export default new Vuex.Store({
   },
   mutations: {
     setMenu: (state, menuAPI) => state.menu = menuAPI.menu,
-    setUser: (state) => {
-
-      let activeUser = window.localStorage.getItem('activeUser')
-      state.activeUser = activeUser
+    loginUser: (state, user) => {
+      window.localStorage.setItem('activeUser', JSON.stringify(user))
+      state.activeUser = user
     },
     addItem: (state, change) => state.cart.push(change)
   },
   actions: {
     fetchPosts: async ({ commit }) => {
-      // Up and running
       await API.fetchProducts().then(data => commit('setMenu', data))
     },
     registerUser: async ({ commit }, userData) => {
-      // Up and running
       const registration = await API.registerUser(userData.name, userData.email)
       if (registration == false) {
-        // Temporary, need refinement
-        console.log('Email already registered...')
+        console.log('Failed to register (email already registered)')
       } else {
-        commit('setUser', userData)
+        commit('loginUser', registration)
       }
     },
-    login: ({ commit }, loginData) => { 
-      let login = API.login(loginData.name, loginData.email)
-      login = true // komma runt,
-      if (login == true) {
-        commit('setUser', loginData)
+    login: async ({ commit }, loginData) => {
+      const login = await API.login(loginData)
+      if (login == false) {
+        console.log('Failed to login (user not found)')
       } else {
-        console.log('Failed to login')
+        commit('loginUser', login)
       }
     },
     addItem: (commit, item) => commit('addItem', item),

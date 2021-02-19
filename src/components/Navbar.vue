@@ -12,7 +12,7 @@
         </div>
         
         <div class="cart">
-            <span class="itemsnr">{{incart}}</span>
+            <span class="itemsnr" v-if="incart > 0">{{incart}}</span>
             <img src="@/assets/bag.svg" class="icon" @click="toggleCart">
         </div>
     </div>

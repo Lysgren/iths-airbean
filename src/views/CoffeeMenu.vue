@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper">
     <Navbar/>
-    <div class="menu-wrapper">
+    
       <h1>Meny</h1>
        <CoffeeMenuItem :menuItem="item" v-for="item in menu" :key="item.id"/>
-    </div>
+    
     
   </div>
   
@@ -25,16 +25,15 @@ export default {
 
 <style scoped>
 
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .wrapper{
   background-color: #F3E4E1;
   color: #2F2926;
 }
 
-.menu-wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
 </style>

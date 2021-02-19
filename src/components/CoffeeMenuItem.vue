@@ -58,7 +58,7 @@ export default {
 }
 
 .heading{
-    width: 20em;
+    width: 15em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

@@ -41,14 +41,12 @@ export default {
 
 * {
   margin: 0;
-  
 }
 
 .page{
   background-color: #E5674E;
   color: white;
   height: 100vh;
-  width: 100vw;
   overflow: hidden;
   display: flex;
   flex-direction: column;

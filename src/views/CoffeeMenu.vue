@@ -4,7 +4,6 @@
     <div class="menu-wrapper">
       <h1>Meny</h1>
        <CoffeeMenuItem :menuItem="item" v-for="item in menu" :key="item.id"/>
-    
     </div>
   </div>
   

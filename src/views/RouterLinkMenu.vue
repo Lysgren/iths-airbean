@@ -9,7 +9,7 @@
       <router-link class="navigation" to="/coffeemenu">Meny</router-link><hr>
       <router-link class="navigation" to="/about">Vårt kaffe</router-link><hr>
       <router-link class="navigation" to="/profile">Min profil</router-link><hr>
-      <router-link class="navigation" to="/orderstatus">Orderstatus</router-link>
+      <router-link v-if="checkCurrentOrder" class="navigation" to="/orderstatus">Orderstatus</router-link>
 
 
     </nav>
@@ -19,12 +19,19 @@
 
 <script>
 export default {
-
   methods:{
-
     goBack(){
-this.$router.go(-1)
-
+      this.$router.go(-1)
+    },
+    
+  },
+  computed: {
+    checkCurrentOrder() {
+      if(this.$store.state.currentOrder.length != []) {
+        return true
+        } else {
+          return false
+        }
     }
   }
 

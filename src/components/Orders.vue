@@ -2,7 +2,7 @@
 <div class="wrapper">
   <div class="content">
   <p class="bold transparent1">{{order.orderId}}</p>
-  <p class="transparent1">20/03/06</p>
+  <p class="transparent1">{{getDate}}</p>
   </div>
   
     <div class="content" v-for="content in orderContent" :key="content.id">
@@ -24,6 +24,11 @@ export default {
     props: {
       order: Object,
       orderContent: Array
+    },
+    computed: {
+      getDate(){
+        return this.order.orderDate.slice(2, 10).replaceAll("-", "/")
+      }
     }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper">
+<div class="wrapperLoggedin">
     <div class="user">
         <img src="@/assets/profile.png" alt="">
         <h2 class="name">User Username</h2>
@@ -57,7 +57,7 @@ export default {
     margin: 0;
 }
 
-.wrapper{
+.wrapperLoggedin{
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -40,7 +40,6 @@ export default {
   background-position: top;
   background-repeat: no-repeat;
   color:white;
-
 }
 
 .profile-wrapper{

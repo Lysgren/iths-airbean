@@ -74,7 +74,7 @@ export default {
   margin-right: auto;
   margin-top: 0.8em;
   padding: 0.8em;
-
+  color: #2f2926;
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.733);
 }
 

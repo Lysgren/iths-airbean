@@ -66,20 +66,20 @@ export default {
   width: 85%;
   height: fit-content;
   background-color: white;
-  border-radius: 4px;
+  border-radius: 0.2em;
   position: absolute;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 16px;
-  padding: 16px;
+  margin-top: 0.8em;
+  padding: 0.8em;
 
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.733);
 }
 
 .summary{
-  margin-top: 8rem;
+  margin-top: 4em;
 }
 
 button {

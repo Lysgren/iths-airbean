@@ -1,27 +1,29 @@
 <template>
   <div class="cart-item">
-    <span>
+    <span class>
       <p class="larger-font">{{ item.title }}</p>
-      <hr />
       <p>{{ item.price * item.amount }} kr</p>
     </span>
-    <span class="amount">
-      <img
-        class="event"
-        @click="changeAmount(item, 'inc')"
-        src="@/assets/arrow-up.svg"
-        alt="arrow up"
-      />
+      <hr />
+    
+      <span class="amount">
+        <img
+          class="event"
+          @click="changeAmount(item, 'inc')"
+          src="@/assets/arrow-up.svg"
+          alt="arrow up"
+        />
 
-      <p>{{ item.amount }}</p>
+        <p>{{ item.amount }}</p>
 
-      <img
-        v-if="displayDec"
-        class="event"
-        @click="changeAmount(item, 'dec')"
-        src="@/assets/arrow-down.svg"
-        alt="arrow down"
-      />
+        <img
+          v-if="displayDec"
+          class="event"
+          @click="changeAmount(item, 'dec')"
+          src="@/assets/arrow-down.svg"
+          alt="arrow down"
+        />
+      
     </span>
   </div>
 </template>
@@ -40,16 +42,14 @@ export default {
 
   methods: {
     changeAmount(item, option) {
-      
-      let payload = {item, option}
+      let payload = { item, option };
       this.$store.commit("changeAmount", payload);
-      
-            
-            if (item.amount == 0) {
-              this.displayDec = false;
-            } else if (item.amount > 0) {
-              this.displayDec = true;
-            }
+
+      if (item.amount == 0) {
+        this.displayDec = false;
+      } else if (item.amount > 0) {
+        this.displayDec = true;
+      }
     },
   },
 };
@@ -65,7 +65,7 @@ export default {
 
 .cart-item p {
   margin: 0;
-  padding: 2px;
+  padding: 0.2em;
 }
 
 .event {
@@ -82,13 +82,19 @@ export default {
   font-weight: bold;
   display: flex;
   flex-direction: column;
+  
 }
 
+
+
 hr {
-  display: inline-block;
-  width: 60px;
-  margin: 0;
+  
+  width: 4em;
+
+  margin: 0 0.8em 0 0;
   border: 0;
-  border-top: 1px dotted black;
+  border-top: 0.1rem dotted black;
 }
+
+
 </style>

@@ -53,12 +53,11 @@ export default {
 
 .info-text{
   max-width: 500px;
-  padding: 2em;
+  padding: 0.5em 2em 6em 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 2em;
   background-image: url(~@/assets/graphics-footer.svg);
   background-position: bottom;
   background-repeat: no-repeat;
@@ -81,6 +80,7 @@ h4{
 
 h1{
   align-self: flex-start;
+  margin: 0;
 }
 
 

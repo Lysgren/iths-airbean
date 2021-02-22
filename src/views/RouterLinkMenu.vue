@@ -48,7 +48,7 @@ nav{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top:128px;
+  margin-top:8em;
 
  
 }
@@ -57,22 +57,22 @@ nav{
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
-  padding: 8px;
+  padding: 0.2em;
   
 }
 
 hr{
-  width: 64px;
+  width: 3em;
   border-top: 0;
   border-color: grey;
 }
 
 img{
-  width: 32px;
+  width: 0.9em;
   background-color: white;
-  padding: 16px;
+  padding: 0.5em;
   border-radius: 50%;
-  margin: 16px;
+  margin: 0.5em;
   align-self: flex-start;
 }
 </style>

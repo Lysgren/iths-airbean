@@ -42,17 +42,27 @@ export default {
     submitOrder() {
       let order = this.$store.state.cart.filter((item) => item.amount > 0);
       let id = Date.now().toString();
-      let date = new Date().toString();
+      let date = new Date().toISOString()
       let sum = this.totalPrice;
+      let eta = 2
       let fullOrder = {
         orderId: id,
         orderDate: date,
         orderContent: order,
         orderTotal: sum,
+        orderETA: eta
       };
 
       this.$store.dispatch("makeOrder", fullOrder);
       this.$router.push("/orderstatus");
+    },
+
+    timer: function () {
+      setInterval(() => {
+        this.timeLeft == 0
+          ? clearInterval(this.timer)
+          : (this.timeLeft = this.timeLeft - 1);
+      }, 60000);
     },
   },
 };

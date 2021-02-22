@@ -12,11 +12,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      timeLeft: 3,
-    };
-  },
+ 
   methods: {
     timer: function () {
       setInterval(() => {
@@ -29,18 +25,28 @@ export default {
       this.$router.push("/coffeemenu");
     },
 
-    checkUser() {
-      return this.user;
-    },
+    
   },
-  mounted() {
-    this.timer();
-  },
+  
 
   computed: {
     order() {
       return this.$store.getters.getCurrentOrder.orderId;
     },
+
+    timeLeft(){
+
+      let dataBase = JSON.parse(window.localStorage.getItem('dataBase'))
+      console.log(dataBase)
+
+      let activeUser = this.$store.getters.getActiveUser
+      console.log(activeUser)
+
+      //let userId = activeUser
+
+      return 'tid'
+
+    }
   },
 };
 </script>

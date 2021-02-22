@@ -7,23 +7,23 @@ async function fetchProducts() {
     return request
   }, delay)
   */
-  const request = require('./menu.json')
-  return request
+  const request = require("./menu.json");
+  return request;
 }
 
 async function registerUser(name, email) {
   // Resolve a random generated ID after a random timer
   // Persist user in localStorage
-  let dataBase = JSON.parse(window.localStorage.getItem('dataBase'))
+  let dataBase = JSON.parse(window.localStorage.getItem("dataBase"));
 
   if (dataBase == null) {
-    localStorage.setItem('dataBase', JSON.stringify([]))
-    dataBase = JSON.parse(window.localStorage.getItem('dataBase'))
-  } 
+    localStorage.setItem("dataBase", JSON.stringify([]));
+    dataBase = JSON.parse(window.localStorage.getItem("dataBase"));
+  }
 
   for (let i = 0; i < dataBase.length; i++) {
     if (dataBase[i].email == email) {
-      return false
+      return false;
     }
   }
 
@@ -32,49 +32,45 @@ async function registerUser(name, email) {
     email: email,
     id: Date.now(),
     orderHistory: [],
-  }
+  };
 
-  dataBase.push(user)
-  window.localStorage.setItem('dataBase',  JSON.stringify(dataBase))
-  return user
+  dataBase.push(user);
+  window.localStorage.setItem("dataBase", JSON.stringify(dataBase));
+  return user;
 }
 
 async function login(loginData) {
-  const dataBase = JSON.parse(window.localStorage.getItem('dataBase'))
+  const dataBase = JSON.parse(window.localStorage.getItem("dataBase"));
   if (dataBase == null) {
-    return false 
+    return false;
   }
-  const findUser = dataBase.find(user => user.name == loginData.name && user.email == loginData.email)
-  return findUser == undefined ? false : findUser
+  const findUser = dataBase.find(
+    (user) => user.name == loginData.name && user.email == loginData.email
+  );
+  return findUser == undefined ? false : findUser;
 }
 
-async function makeOrder(orderId, order) {
+async function makeOrder(order, user) {
+  let dataBase = JSON.parse(window.localStorage.getItem("dataBase"));
 
- //  let order = this.$store.state.cart.filter(item => item.amount >0)
- 
- console.log(order)
- console.log(orderId)
+  let userData = dataBase.find((storedUser) => storedUser.id == user.id);
 
-// if(this.$store.state.activeUser == null){
-//   this.$store.state.orderHistory.push(order)
-//   console.log('anonym användare' + this.$store.state.orderHistory)
-//   console.log('anonym användare' + order)
-// }else{
-//   //push order till databasen
-//   console.log(order);
+  let userIndex = dataBase.indexOf(userData);
+  let orderArray = dataBase[userIndex].orderHistory;
+  orderArray.push(order);
 
-// }
+  dataBase[userIndex] = userData;
 
+  return window.localStorage.setItem("dataBase", JSON.stringify(dataBase));
 
   // Resolve with a orderId, order total price and ETA after a random timer
   // Persist order coupled userId in an array in localStorage
-
 }
 
 async function fetchOrderHistory(userId) {
   // Resolve an array of orders after a random timer
-  console.log(userId)
-  return userId.orderHistory
+  console.log(userId);
+  return userId.orderHistory;
 }
 
-export { fetchProducts, registerUser, login, makeOrder, fetchOrderHistory }
+export { fetchProducts, registerUser, login, makeOrder, fetchOrderHistory };

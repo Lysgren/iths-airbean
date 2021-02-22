@@ -38,7 +38,14 @@ export default {
   background-color: #F3E4E1;
   display: flex;
   flex-direction: column;
+  background-image: url(~@/assets/graphics-header.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  
+  
 }
+
+
 
 .strong{
   font-weight: 700;
@@ -52,6 +59,10 @@ export default {
   align-items: center;
   justify-content: center;
   padding-bottom: 2em;
+  background-image: url(~@/assets/graphics-footer.svg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  
 }
 
 img{
@@ -71,4 +82,6 @@ h4{
 h1{
   align-self: flex-start;
 }
+
+
 </style>

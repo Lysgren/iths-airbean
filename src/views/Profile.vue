@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="wrapper">
     <Navbar/>
-
+<div class="profile-wrapper">
     <div v-if="loggedIn == false">
       <ProfileLogin/>
     </div>
@@ -11,6 +11,8 @@
     </div>
 
     <h1>Profile</h1>
+
+    </div>
   </div>
   
 </template>
@@ -31,4 +33,20 @@ export default {
 </script>
 
 <style scoped>
+
+.wrapper{
+  background-color: #2F2926;
+   background-image: url(~@/assets/graphics-header.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  color:white;
+
+}
+
+.profile-wrapper{
+  height: 100vh;
+
+
+}
+
 </style>

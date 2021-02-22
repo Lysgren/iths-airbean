@@ -11,7 +11,7 @@
            
         </div>
         
-        <div :class="checkEmptyCart">
+        <div :class="checkEmptyCart" class="on-top">
             <span class="itemsnr" v-if="incart > 0">{{incart}}</span>
             <img src="@/assets/bag.svg" class="icon" @click="toggleCart">
         </div>
@@ -78,7 +78,12 @@ export default {
     cursor: pointer;
     margin: 0;
     padding: 0;
+    
 
+}
+
+.on-top{
+    z-index: 1;
 }
 
 .nav {

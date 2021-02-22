@@ -1,50 +1,57 @@
 <template>
   <div class="page">
-    
-      <p>Ordernummer {{order}}</p>
-      <div>
-        <img src="@/assets/drone.svg" alt="">
-      </div>
-      <h1>Din beställning är på väg!</h1>
-      <p> {{timeLeft}} minuter</p>
-      <button v-on:click="clicked">Ok, cool!</button>
-    
-    
+    <p>Ordernummer {{ order }}</p>
+    <div>
+      <img src="@/assets/drone.svg" alt="" />
+    </div>
+    <h1>Din beställning är på väg!</h1>
+    <p>{{ timeLeft }} minuter</p>
+    <button v-on:click="clicked">Ok, cool!</button>
   </div>
-  
 </template>
 
 <script>
-
 export default {
-  data(){return{
-    timeLeft: 3,
-    order: "#125767868"
-  }},
+  data() {
+    return {
+      timeLeft: 3,
+    };
+  },
   methods: {
     timer: function () {
       setInterval(() => {
-        (this.timeLeft == 0) ? clearInterval(this.timer) : (this.timeLeft = this.timeLeft - 1) 
+        this.timeLeft == 0
+          ? clearInterval(this.timer)
+          : (this.timeLeft = this.timeLeft - 1);
       }, 60000);
     },
-    clicked(){
-      this.$router.push('/coffeemenu')
-    }
+    clicked() {
+      this.$router.push("/coffeemenu");
+    },
+
+    checkUser() {
+      return this.user;
+    },
   },
-  mounted(){
-    this.timer()
-  }
-}
+  mounted() {
+    this.timer();
+  },
+
+  computed: {
+    order() {
+      return this.$store.getters.getCurrentOrder.orderId;
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 * {
   margin: 0;
 }
 
-.page{
-  background-color: #E5674E;
+.page {
+  background-color: #e5674e;
   color: white;
   height: 100vh;
   overflow: hidden;
@@ -67,4 +74,7 @@ button {
   cursor: pointer;
 }
 
+h1{
+  text-align: center;
+}
 </style>

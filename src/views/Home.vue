@@ -26,5 +26,6 @@ export default {
   background-position: top left, top right;
   background-repeat: no-repeat, no-repeat;
   height: 100vh;
+  cursor: pointer;
 }
 </style>

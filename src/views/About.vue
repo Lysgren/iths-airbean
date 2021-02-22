@@ -12,15 +12,10 @@
     </p>
     <p>Organic irish strong and barista trifecta body. Kopi-luwak affogato siphon at instant sugar breve. Sit a, barista ristretto beans and french press, whipped aged irish redeye frappuccino. Cinnamon caffeine, decaffeinated est, galão cream shop cinnamon café au lait.
     </p>
-    
       <img src="@/assets/eva-cortado.jpg" alt="Grundare och VD">
       <h2>Eva Cortado</h2>
       <h4>VD och grundare</h4>
-    
   </div>
-  
-  
-  
 </div>
 
 </template>
@@ -41,11 +36,7 @@ export default {
   background-image: url(~@/assets/graphics-header.svg);
   background-position: top;
   background-repeat: no-repeat;
-  
-  
 }
-
-
 
 .strong{
   font-weight: 700;
@@ -53,6 +44,7 @@ export default {
 
 .info-text{
   max-width: 500px;
+  width: 90%;
   padding: 0.5em 2em 6em 2em;
   display: flex;
   flex-direction: column;
@@ -61,7 +53,12 @@ export default {
   background-image: url(~@/assets/graphics-footer.svg);
   background-position: bottom;
   background-repeat: no-repeat;
-  
+}
+
+@media only screen and (max-width: 1000px) {
+  .info-text {
+    max-width: 100%;
+  }
 }
 
 img{

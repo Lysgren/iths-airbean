@@ -1,25 +1,46 @@
 {
     "menu":[
-      {"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39},
+      {
+        "id":1,
+        "title":"Bryggkaffe",
+        "desc":"Bryggd på månadens bönor.",
+        "details": "Rich so, extra , plunger pot dark, robusta irish mocha cultivar extra. Filter grounds, viennese half and half coffee con panna filter. Et skinny, acerbic, ut breve whipped cultivar sit body half and half.",
+        "price":39
+      },
       {
         "id":2,
         "title":"Caffè Doppio",
         "desc":"Bryggd på månadens bönor.",
+        "details": "Fair trade wings, body, so, white that kopi-luwak coffee as sugar. Con panna strong redeye aged so eu arabica. Aftertaste, java robust frappuccino macchiato lungo carajillo siphon crema iced seasonal viennese.",
         "price":49
       },
-      {"id":3,"title":"Cappuccino","desc":"Bryggd på månadens bönor.","price":49},
+      {
+        "id":3,
+        "title":"Cappuccino",
+        "desc":"Bryggd på månadens bönor.",
+        "details": "White wings steamed, dripper, acerbic, dark sweet so java skinny. Java, rich arabica steamed single origin, doppio kopi-luwak iced aftertaste single shot.",
+        "price":49
+      },
       {
         "id":4,
         "title":"Latte Macchiato",
         "desc":"Bryggd på månadens bönor.",
+        "details": "Ristretto, shop acerbic frappuccino iced macchiato grinder chicory sweet. In mocha caffeine acerbic turkish pumpkin spice frappuccino caramelization fair trade. ",
         "price":49
       },
       {
         "id":5,
         "title":"Kaffe Latte",
         "desc":"Bryggd på månadens bönor.",
+        "details": "Grinder et pumpkin spice, mug crema saucer barista caffeine. Steamed seasonal frappuccino, medium, single origin ristretto café au lait extraction trifecta. Single origin est, barista at breve acerbic extra  coffee.",
         "price":54
       },
-      {"id":6,"title":"Cortado","desc":"Bryggd på månadens bönor.","price":39}
+      { 
+        "id":6,
+        "title":"Cortado",
+        "desc":"Bryggd på månadens bönor.",
+        "details": "Viennese wings mocha caffeine extraction chicory americano extra  coffee cultivar shop. Siphon single origin aromatic, aroma, ut viennese, chicory whipped arabica aromatic est roast.",
+        "price":39
+      }
     ]
   }

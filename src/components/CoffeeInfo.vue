@@ -22,21 +22,27 @@ export default {
 .info {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 90vw;
   height: auto;
   background-color: white;
   border: 1px solid black;
   position: absolute;
+  left: 5%;
+  margin: 0;
 }
 
 .text{
-    padding: 2em;
+    margin: 0;
+    padding: 1em;
 }
 
 .close{
+    background-color: black;
+    color: white;
     font-weight: 700;
     align-self: flex-end;
-    padding: 10px;
+    padding: 5px;
     cursor: pointer;
+    margin: 0;
 }
 </style>

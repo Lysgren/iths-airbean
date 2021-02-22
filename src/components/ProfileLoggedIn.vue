@@ -2,8 +2,8 @@
 <div class="wrapperLoggedin">
     <div class="user">
         <img src="@/assets/profile.png" alt="">
-        <h2 class="name">User Username</h2>
-        <p class="email">sixten@coffeelover.com</p> 
+        <h2 class="name">{{getUser.name}}</h2>
+        <p class="email">{{getUser.email}}</p> 
     </div>
     <div class="orders">
         <h2>Orderhistorik</h2>
@@ -23,23 +23,16 @@ import Orders from '@/components/Orders.vue'
 
 export default {
     components: {Orders},
-    data(){return{
-        orderHistory: [
-            {
-                orderContent: [{amount: 3, title: "Bryggkaffe", id: 1, price: 39}, {amount: 2, title: "Bryggkaffe XL", id: 4, price: 45}],
-                orderDate: "Mon Feb 22 2021 10:19:17 GMT+0100 (centraleuropeisk normaltid)",
-                orderId: "1613985557875",
-                orderTotal: 117
-            },
-            {
-                orderContent: [{amount: 2, title: "Bryggkaffe delux", id: 2, price: 50}],
-                orderDate: "Mon Feb 22 2021 10:19:17 GMT+0100 (centraleuropeisk normaltid)",
-                orderId: "233485557875",
-                orderTotal: 150
-            }
-        ]
-    }},
+  
     computed: {
+        orderHistory(){
+            let data = JSON.parse(localStorage.getItem('dataBase'))
+            return data[0].orderHistory
+        },
+        getUser(){
+            let data = JSON.parse(localStorage.getItem('dataBase'))
+            return data[0]
+        },
         orderTot(){
             let sum = 0
             this.orderHistory.forEach(order => {

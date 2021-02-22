@@ -83,7 +83,7 @@ export default {
 }
 
 .on-top{
-    z-index: 1;
+    z-index: 2;
 }
 
 .nav {

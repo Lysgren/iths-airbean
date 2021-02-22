@@ -42,27 +42,23 @@ export default {
     submitOrder() {
       let order = this.$store.state.cart.filter((item) => item.amount > 0);
       let id = Date.now().toString();
-      let date = new Date().toISOString()
+      let date = new Date().toISOString();
       let sum = this.totalPrice;
-      let eta = 2
+      let eta = this.randomTime();
       let fullOrder = {
         orderId: id,
         orderDate: date,
         orderContent: order,
         orderTotal: sum,
-        orderETA: eta
+        orderETA: eta,
       };
 
       this.$store.dispatch("makeOrder", fullOrder);
       this.$router.push("/orderstatus");
     },
 
-    timer: function () {
-      setInterval(() => {
-        this.timeLeft == 0
-          ? clearInterval(this.timer)
-          : (this.timeLeft = this.timeLeft - 1);
-      }, 60000);
+    randomTime() {
+      return Math.floor(Math.random() * 10 + 1);
     },
   },
 };
@@ -86,9 +82,10 @@ export default {
   padding: 0.8em;
   color: #2f2926;
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.733);
+  z-index: 1;
 }
 
-.summary{
+.summary {
   margin-top: 4em;
 }
 
@@ -97,7 +94,7 @@ button {
   height: 50px;
   border-radius: 2em;
   border: none;
-   background-color: #2f2926;
+  background-color: #2f2926;
   color: white;
   font-size: 1.2em;
   font-weight: 700;
@@ -111,11 +108,9 @@ button {
   font-size: 1.8rem;
   display: flex;
   justify-content: space-between;
-  
 }
 
-p{
+p {
   margin: 0.2rem;
-  
 }
 </style>

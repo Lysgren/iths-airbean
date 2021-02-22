@@ -5,48 +5,61 @@
       <img src="@/assets/drone.svg" alt="" />
     </div>
     <h1>Din beställning är på väg!</h1>
-    <p>{{ timeLeft }} minuter</p>
+
+    <p>{{ countDown }} minuter</p>
+
     <button v-on:click="clicked">Ok, cool!</button>
   </div>
 </template>
 
 <script>
 export default {
- 
+  data() {
+    return {
+      countDown: 0,
+    };
+  },
   methods: {
     timer: function () {
       setInterval(() => {
-        this.timeLeft == 0
-          ? clearInterval(this.timer)
-          : (this.timeLeft = this.timeLeft - 1);
+        this.countDown == 0
+          ? clearInterval(this.countDown)
+          : (this.countDown = this.countDown - 1);
       }, 60000);
     },
     clicked() {
       this.$router.push("/coffeemenu");
     },
-
-    
   },
-  
+  created() {
+    this.countDown = this.timeLeft;
 
+    this.timer();
+  },
   computed: {
     order() {
       return this.$store.getters.getCurrentOrder.orderId;
     },
 
-    timeLeft(){
+    timeLeft() {
+      return this.$store.getters.getCurrentOrder.orderETA;
 
-      let dataBase = JSON.parse(window.localStorage.getItem('dataBase'))
-      console.log(dataBase)
+      // let dataBase = JSON.parse(window.localStorage.getItem("dataBase"));
 
-      let activeUser = this.$store.getters.getActiveUser
-      console.log(activeUser)
+      // let activeUser = this.$store.getters.getActiveUser;
 
-      //let userId = activeUser
+      // let userId = activeUser.id;
 
-      return 'tid'
+      // let user = dataBase.find((user) => user.id == userId);
 
-    }
+      // let orders = user.orderHistory;
+
+      // let lastOrder = orders.length - 1;
+
+      // let eta = orders[lastOrder].orderETA;
+
+      // return eta;
+    },
   },
 };
 </script>
@@ -80,7 +93,7 @@ button {
   cursor: pointer;
 }
 
-h1{
+h1 {
   text-align: center;
 }
 </style>

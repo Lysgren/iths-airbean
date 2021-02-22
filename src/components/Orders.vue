@@ -1,49 +1,68 @@
 <template>
-<h1>Orders</h1>
+<div class="wrapper">
+  <div class="content">
+  <p class="bold transparent1">{{order.orderId}}</p>
+  <p class="transparent1">20/03/06</p>
+  </div>
+  
+    <div class="content" v-for="content in orderContent" :key="content.id">
+      <p class="transparent2 part">{{content.amount}} st. {{content.title}}</p>
+      <p class="transparent2 part">{{content.price}} kr/st</p>
+    </div>
+  
+  <div class="content tot">
+  <p class="transparent2">total ordersumma</p>
+  <p class="transparent2">{{order.orderTotal}} kr</p>
+  </div>
+  <hr class="line">
+</div>
+
 </template>
 
 <script>
 export default {
-    data() { return {
-        orderHistory: {
-                    orderId234: [      {
-        "id":2,
-        "title":"Caffè Doppio",
-        "desc":"Bryggd på månadens bönor.",
-        "price":49,
-        "amount": 2
-      },
-    {"id":3,"title":"Cappuccino","desc":"Bryggd på månadens bönor.","price":49, "amount": 2},
-      {
-        "id":4,
-        "title":"Latte Macchiato",
-        "desc":"Bryggd på månadens bönor.",
-        "price":49,
-                "amount": 2
-      },
-            
-        ],
-                orderId235: [      {
-        "id":2,
-        "title":"Caffè Doppio",
-        "desc":"Bryggd på månadens bönor.",
-        "price":49,
-        "amount": 2
-      },
-    {"id":3,"title":"Cappuccino","desc":"Bryggd på månadens bönor.","price":49, "amount": 2},
-      {
-        "id":4,
-        "title":"Latte Macchiato",
-        "desc":"Bryggd på månadens bönor.",
-        "price":49,
-                "amount": 2
-      },
-            
-        ]
-        }
-    }}
+    props: {
+      order: Object,
+      orderContent: Array
+    }
 }
 </script>
 
 <style scoped>
+
+*{
+  margin: 0;
+}
+
+.wrapper{
+  padding: 1em 0;
+}
+
+.bold{
+  font-weight: 700;
+}
+
+.transparent1{
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.788);
+}
+.transparent2{
+  color: rgba(255, 255, 255, 0.719);
+  font-size: 12px;
+}
+
+.content{
+  display: flex;
+  justify-content: space-between;
+}
+
+.tot{
+  margin-top: 0.4em;
+}
+
+.line{
+  color: rgba(255, 255, 255, 0.788);
+  color: blue;
+}
+
 </style>

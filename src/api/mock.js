@@ -67,10 +67,15 @@ async function makeOrder(order, user) {
   // Persist order coupled userId in an array in localStorage
 }
 
-async function fetchOrderHistory(userId) {
+async function fetchOrderHistory(activeUser) {
   // Resolve an array of orders after a random timer
-  console.log(userId);
-  return userId.orderHistory;
+
+  let dataBase = JSON.parse(window.localStorage.getItem("dataBase"));
+  let userId = activeUser.id;
+  let user = dataBase.find((user) => user.id == userId);
+  let userIndex = dataBase.indexOf(user);
+
+  return dataBase[userIndex].orderHistory;
 }
 
 export { fetchProducts, registerUser, login, makeOrder, fetchOrderHistory };

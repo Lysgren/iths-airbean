@@ -5,7 +5,13 @@
     
   </div>
 </template>
-
+<script>
+export default {
+  created(){
+    this.$store.commit('resetActiveUser')
+  }
+}
+</script>
 <style lang="scss">
 body{
   margin: 0;

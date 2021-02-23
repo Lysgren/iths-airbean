@@ -44,21 +44,6 @@ export default {
     timeLeft() {
       return this.$store.getters.getCurrentOrder.orderETA;
 
-      // let dataBase = JSON.parse(window.localStorage.getItem("dataBase"));
-
-      // let activeUser = this.$store.getters.getActiveUser;
-
-      // let userId = activeUser.id;
-
-      // let user = dataBase.find((user) => user.id == userId);
-
-      // let orders = user.orderHistory;
-
-      // let lastOrder = orders.length - 1;
-
-      // let eta = orders[lastOrder].orderETA;
-
-      // return eta;
     },
   },
 };

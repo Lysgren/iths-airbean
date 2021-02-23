@@ -10,12 +10,13 @@ export default new Vuex.Store({
     activeUser: window.localStorage.getItem("activeUser"),
     currentOrder: [],
     cart: [],
+    orderHistory: [],
   },
   getters: {
     getMenu: (state) => state.menu,
     getCart: (state) => state.cart,
     getActiveUser: (state) => state.activeUser,
-    getCurrentOrder: (state) => state.currentOrder
+    getCurrentOrder: (state) => state.currentOrder,
   },
   mutations: {
     setMenu: (state, menuAPI) => (state.menu = menuAPI.menu),
@@ -47,6 +48,15 @@ export default new Vuex.Store({
     setOrder(state, order) {
       state.currentOrder = order;
       state.cart = [];
+    },
+
+    userOrders(state, orders) {
+      state.orderHistory = orders;
+    },
+
+    resetActiveUser(state) {
+      window.localStorage.removeItem("activeUser");
+      state.activeUser = null;
     },
   },
   actions: {
@@ -85,8 +95,9 @@ export default new Vuex.Store({
       }
     },
 
-    fetchHistory: async (commit, userId) => {
-      API.fetchOrderHistory(userId);
+    fetchHistory: async ({ commit, state }) => {
+      let orders = await API.fetchOrderHistory(state.activeUser);
+      commit("userOrders", orders);
     },
   },
 });
